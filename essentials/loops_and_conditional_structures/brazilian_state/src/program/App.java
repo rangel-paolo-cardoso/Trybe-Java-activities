@@ -11,16 +11,12 @@ public class App {
     }
 
     static void showFderatedUnitName(String fU) {
-        switch (fU) {
-            case "CE":
-                System.out.println("CEARA");
-                break;
-            case "SC":
-                System.out.println("SANTA CATARINA");
-                break;
-            case "AM":
-                System.out.println("AMAZONAS");
-                break;
+        if (fU.equalsIgnoreCase("ce")) {
+            print("CEARA");
+        } else if (fU.equalsIgnoreCase("sc")) {
+            print("SANTA CATARINA");
+        } else {
+            print("AMAZONAS");
         }
     }
 
