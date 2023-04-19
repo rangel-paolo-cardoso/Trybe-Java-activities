@@ -8,7 +8,12 @@ Java Boost preparation
 - Loops and conditional structures
 - Main Method
 
-### 2. Object Oriented Programming
+### 2. OOP (Object Oriented Programming)
+- Abstraction
+- Getters and Setters
+- Encapsulation and Inheritance
+- Polymorphism
+- Interfaces and Abstract Classes
 
 ### 3. Text and archive handling
 
