@@ -1,6 +1,8 @@
 package program.abstracts;
 
-public class Polygon {
+import program.interfaces.Farm;
+
+public abstract class Polygon implements Farm {
     protected double base;
     protected double height;
 

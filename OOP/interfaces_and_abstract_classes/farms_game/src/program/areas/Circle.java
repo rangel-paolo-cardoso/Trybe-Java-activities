@@ -3,7 +3,7 @@ package program.areas;
 import program.interfaces.Farm;
 
 public class Circle implements Farm {
-    private double pi;
+    private static double PI = 3.14;
     private double radius;
 
     public Circle(double radius) {
@@ -12,16 +12,7 @@ public class Circle implements Farm {
 
     @Override
     public double area() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'area'");
-    }
-
-    public double getPi() {
-        return pi;
-    }
-
-    public void setPi(double pi) {
-        this.pi = pi;
+        return PI * radius * radius;
     }
 
     public double getRadius() {
@@ -31,5 +22,4 @@ public class Circle implements Farm {
     public void setRadius(double radius) {
         this.radius = radius;
     }
-
 }
