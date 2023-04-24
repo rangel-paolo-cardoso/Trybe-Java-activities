@@ -11,8 +11,7 @@ public class Square implements Farm {
 
     @Override
     public double area() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'area'");
+        return side * side;
     }
 
     public double getSide() {
