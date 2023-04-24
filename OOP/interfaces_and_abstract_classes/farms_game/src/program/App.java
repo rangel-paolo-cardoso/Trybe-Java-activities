@@ -56,6 +56,7 @@ public class App {
 
             if (player == numberOfPlayers) {
                 printResults(players);
+                sc.close();
                 break;
             }
             player += 1;
