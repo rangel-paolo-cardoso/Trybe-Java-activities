@@ -16,6 +16,8 @@ Java Boost preparation
 - Interfaces and Abstract Classes
 
 ### 3. Text and archive handling
+- Reading and Writing files
+- Dealing with Strings
 
 ### 4. Error handling
 
