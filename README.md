@@ -20,6 +20,8 @@ Java Boost preparation
 - Dealing with Strings
 
 ### 4. Error handling
+- Try/Catch
+- Refining the error handling
 
 ### 5. Collections
 
