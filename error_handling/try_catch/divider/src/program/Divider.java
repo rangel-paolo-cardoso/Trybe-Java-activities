@@ -5,7 +5,7 @@ public final class Divider {
     public int divide(int a, int b) {
         try {
             return a / b;
-        } catch (Exception e) {
+        } catch (ArithmeticException e) {
             return 0 ;
         }
     }
