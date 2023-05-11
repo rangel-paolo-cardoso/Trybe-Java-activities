@@ -24,6 +24,8 @@ Java Boost preparation
 - Refining the error handling
 
 ### 5. Collections
+- List & Set
+- Map
 
 ### 6. Dates
 
