@@ -26,6 +26,7 @@ Java Boost preparation
 ### 5. Collections
 - List & Set
 - Map
+- Streams
 
 ### 6. Dates
 
