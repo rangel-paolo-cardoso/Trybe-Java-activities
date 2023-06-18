@@ -29,6 +29,8 @@ Java Boost preparation
 - Streams
 
 ### 6. Dates
+- Dates with times
+- Operation on dates and times
 
 ### 7. Dependency Management
 
