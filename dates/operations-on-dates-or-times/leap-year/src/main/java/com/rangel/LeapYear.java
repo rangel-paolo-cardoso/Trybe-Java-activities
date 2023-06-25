@@ -21,11 +21,9 @@ public class LeapYear {
      */
     public int identifyNextLeapYear(String brasilianFormattedDate) {
         DateTimeFormatter brazilianFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        LocalDate dateFormatted = LocalDate.parse(brasilianFormattedDate, brazilianFormat).plusYears(1);
-        while (!dateFormatted.isLeapYear()) {
-            dateFormatted = dateFormatted.plusYears(1);
-        }
+        LocalDate dateFormatted = LocalDate.parse(brasilianFormattedDate, brazilianFormat);
+        int year = dateFormatted.getYear();
 
-        return dateFormatted.getYear();
+        return year + (4 - (year % 4));
     }
 }
