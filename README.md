@@ -30,7 +30,7 @@ Java Boost preparation
 
 ### 6. Dates
 - Dates with times
-- Operation on dates and times
+- Operations on dates or times
 
 ### 7. Dependency Management
 
