@@ -24,6 +24,6 @@ public class LeapYear {
         LocalDate dateFormatted = LocalDate.parse(brasilianFormattedDate, brazilianFormat);
         int year = dateFormatted.getYear();
 
-        return year + (4 - (year % 1));
+        return year + (4 - (year % 4));
     }
 }
