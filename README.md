@@ -33,6 +33,7 @@ Java Boost preparation
 - Operations on dates or times
 
 ### 7. Dependency Management
+- Maven and Gradle
 
 ### 8. Tests with JUnit5
 
