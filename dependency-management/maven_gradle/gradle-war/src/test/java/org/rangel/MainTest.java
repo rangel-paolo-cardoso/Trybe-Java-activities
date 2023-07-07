@@ -9,7 +9,6 @@ public class MainTest {
     @Test
     @DisplayName("1 - Testing the initial message printed on the console.")
     public void testMainMessage() {
-        Main main = new Main();
-        Assertions.assertEquals("Hello Gradle!", main.greeting());
+        Assertions.assertEquals("Hello Gradle!", Main.greeting());
     }
 }
