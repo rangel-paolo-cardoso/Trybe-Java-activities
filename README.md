@@ -36,6 +36,8 @@ Java Boost preparation
 - Maven and Gradle
 
 ### 8. Tests with JUnit5
+- Unit tests with JUnit 5
+- TDD with JUnit 5
 
 ### 9. ORM - Hibernate
 
