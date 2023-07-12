@@ -24,7 +24,7 @@ public class ValidateCPF {
     private static short setVerifyingDigit(String textDigits) {
         short sum = 0;
         short subtraction;
-        for (int i = 0, j = textDigits.length() + 1; i < textDigits.length() - 1; i++) {
+        for (int i = 0, j = textDigits.length() + 1; i < textDigits.length(); i++) {
             sum += j * Character.getNumericValue(textDigits.charAt(i));
             j--;
         }
