@@ -40,6 +40,8 @@ Java Boost preparation
 - TDD with JUnit 5
 
 ### 9. ORM - Hibernate
+- Creating entities
+- Relationships and queries
 
 ### 10. Java Web
 
