@@ -78,7 +78,7 @@ public class AppTest {
         assertNotEquals(0, id);
 
         Vehicle insertedVehicle = this.findById(id);
-        assertEquals(2022, insertedVehicle.getYear());
+        assertEquals(2023, insertedVehicle.getYear());
         assertEquals("Uno", insertedVehicle.getModel());
         assertEquals("0", insertedVehicle.getMileage());
 

@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
     version="2.1">
     <persistence-unit name="com.rangel.vehicle-hibernate">
-        <description>Hibernate EntityManager Veículo</description>
+        <description>Hibernate EntityManager Vehicle</description>
         <class>com.rangel.entities.Vehicle</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
