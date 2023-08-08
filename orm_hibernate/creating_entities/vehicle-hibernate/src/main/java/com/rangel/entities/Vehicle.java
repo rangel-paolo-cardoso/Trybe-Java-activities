@@ -16,19 +16,19 @@ public class Vehicle {
 
     private String model;
 
-    private Double mileage;
+    private String mileage;
 
     public Vehicle() {
     }
 
-    public Vehicle(Long id, Integer year, String model, Double mileage) {
+    public Vehicle(Long id, Integer year, String model, String mileage) {
         this.id = id;
         this.year = year;
         this.model = model;
         this.mileage = mileage;
     }
 
-    public Vehicle(Integer year, String model, Double mileage) {
+    public Vehicle(Integer year, String model, String mileage) {
         this.year = year;
         this.model = model;
         this.mileage = mileage;
@@ -58,11 +58,11 @@ public class Vehicle {
         this.model = model;
     }
 
-    public Double getMileage() {
+    public String getMileage() {
         return mileage;
     }
 
-    public void setMileage(Double mileage) {
+    public void setMileage(String mileage) {
         this.mileage = mileage;
     }
 }

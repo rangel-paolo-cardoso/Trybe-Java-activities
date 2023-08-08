@@ -9,7 +9,7 @@ import jakarta.persistence.Persistence;
 
 public class App {
     public static void main(String[] args) {
-        Vehicle vehicle = new Vehicle(2023, "My Car Model", 455.30);
+        Vehicle vehicle = new Vehicle(2023, "My Car Model", "455.30");
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.rangel.vehicle-hibernate");
 
