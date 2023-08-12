@@ -1,10 +1,14 @@
 package com.rangel;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
+import java.util.List;
 import java.util.stream.Stream;
 
+import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -112,5 +116,134 @@ public class AppTest {
                     || method.getName().equals("delete") || method.getName().equals("save")
                     || method.getName().equals("findById"));
         });
+    }
+
+    @Test
+    @DisplayName("2 - Verifies if the insertion of the entity Datacenter is correctly done")
+    public void testInsertDatacenter() {
+        DatacenterService service = new DatacenterService();
+        List<Datacenter> data = service.list();
+        assertEquals(2, data.size());
+    }
+
+    @Test
+    @DisplayName("3 - Veriflies if the insertion of the entity Server is correctly done")
+    public void testInsertServer() {
+        ServerService service = new ServerService();
+        List<Server> data = service.list();
+        assertEquals(4, data.size());
+    }
+
+    @Test
+    @DisplayName("4 - Verifies if the insertion of the entity Application is correctly done")
+    public void testInsertApplication() {
+        ApplicationService service = new ApplicationService();
+        List<Application> data = service.list();
+        assertEquals(3, data.size());
+    }
+
+    @Test
+    @DisplayName("5 - Tests OneToMany relationship (Datacenter <-> Server)")
+    public void testOneToManyRelationship() {
+        ServerService service = new ServerService();
+        List<Server> data = service.list();
+        assertEquals(4, data.size());
+
+        data.forEach(s -> {
+            if (s.getName().equals("Ariranha") || s.getName().equals("LoboGuara")) {
+                assertEquals("Cerrado", s.getDatacenter().getName());
+            } else if (s.getName().equals("Tamanduá Bandeira") || s.getName().equals("Jaguatirica")) {
+
+            } else {
+                fail("Wrong relationships");
+            }
+        });
+    }
+
+    @Test
+    @DisplayName("6 - Tests ManyToMany relationship (Server <-> Application)")
+    public void testManyToManyRelationship() {
+        ServerService service = new ServerService();
+        List<Server> data = service.list();
+        assertEquals(4, data.size());
+
+        data.forEach(s -> {
+            if (s.getName().equals("Ariranha")) {
+                s.getApplications().forEach(a -> {
+                    assertEquals(true,
+                            a.getName().equals("Trybe Course") || a.getName().equals("Agro Techfields"));
+                });
+            } else if (s.getName().equals("LoboGuara")) {
+                s.getApplications().forEach(a -> {
+                    assertEquals(true, a.getName().equals("Trybe Course")
+                            || a.getName().equals("Agro Techfields") || a.getName().equals("FutuereH"));
+                });
+            } else if (s.getName().equals("Tamanduá Bandeira")) {
+                s.getApplications().forEach(a -> {
+                    assertEquals(true, a.getName().equals("Trybe Course"));
+                });
+            } else if (s.getName().equals("Jaguatirica")) {
+                s.getApplications().forEach(a -> {
+                    assertEquals(true,
+                            a.getName().equals("FutuereH") || a.getName().equals("Agro Techfields"));
+                });
+            } else {
+                fail("Wrong relationships");
+            }
+        });
+    }
+
+    @Test
+    @DisplayName("7 - Tests Datacenter entity remotion")
+    public void testDatacenterRemotion() {
+
+        Datacenter datacenter = new Datacenter();
+        datacenter.setName("Test");
+
+        DatacenterService service = new DatacenterService();
+        service.save(datacenter);
+        service.delete(datacenter.getId());
+
+        assertNull(service.findById(datacenter.getId()));
+    }
+
+    @Test
+    @DisplayName("8 - Tests Server entity remotion")
+    public void testServerRemotion() {
+
+        Server server = new Server();
+        server.setNome("Test");
+
+        ServerService service = new ServerService();
+        service.save(server);
+        service.delete(server.getId());
+
+        assertNull(service.findById(server.getId()));
+    }
+
+    @Test
+    @DisplayName("9 - Tests Application entity remotion")
+    public void testApplicationRemotion() {
+
+        Application application = new Application();
+        application.setNome("Test");
+
+        ApplicationService service = new ApplicationService();
+        service.save(application);
+        service.delete(application.getId());
+
+        assertNull(service.findById(application.getId()));
+    }
+
+    @AfterAll
+    public static void clearDB() {
+        DatacenterService service = new DatacenterService();
+        service.delete((long) 1);
+        service.delete((long) 2);
+
+        ApplicationService appService = new ApplicationService();
+        appService.delete((long) (1));
+        appService.delete((long) (2));
+        appService.delete((long) (3));
     }
 }
