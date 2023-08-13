@@ -8,7 +8,7 @@ import com.rangel.entities.Application;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
 
-public class AplicacaoService implements IService<Application, Long> {
+public class ApplicationService implements IService<Application, Long> {
 
     EntityManager em = emf.createEntityManager();
 
