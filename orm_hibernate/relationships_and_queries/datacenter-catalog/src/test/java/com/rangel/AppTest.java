@@ -16,7 +16,8 @@ import org.junit.jupiter.api.Test;
 import com.rangel.entities.Application;
 import com.rangel.entities.Datacenter;
 import com.rangel.entities.Server;
-import com.rangel.services.AplicacaoService;
+import com.rangel.services.ApplicationService;
+import com.rangel.services.DatacenterService;
 import com.rangel.services.IService;
 import com.rangel.services.ServerService;
 
@@ -99,20 +100,20 @@ public class AppTest {
     @Test
     @DisplayName("1 - Verifies if the service classes implement ServiceInterface")
     public void testServiceImplementation() {
-        AplicacaoService app = new AplicacaoService();
+        ApplicationService app = new ApplicationService();
         assertEquals(1, app.getClass().getInterfaces().length);
         assertTrue(app.getClass().getInterfaces()[0].getName()
-                .equals("com.trybe.acc.java.datacenter.service.ServiceInterface"));
+                .equals("com.rangel.services.IService"));
 
         ServerService server = new ServerService();
         assertEquals(1, server.getClass().getInterfaces().length);
         assertTrue(server.getClass().getInterfaces()[0].getName()
-                .equals("com.trybe.acc.java.datacenter.service.ServiceInterface"));
+                .equals("com.rangel.services.IService"));
 
         DatacenterService datacenter = new DatacenterService();
         assertEquals(1, datacenter.getClass().getInterfaces().length);
         assertTrue(datacenter.getClass().getInterfaces()[0].getName()
-                .equals("com.trybe.acc.java.datacenter.service.ServiceInterface"));
+                .equals("com.rangel.services.IService"));
 
         Stream.of(IService.class.getDeclaredMethods()).forEach(method -> {
             assertTrue(method.getName().equals("update") || method.getName().equals("list")
@@ -215,7 +216,7 @@ public class AppTest {
     public void testServerRemotion() {
 
         Server server = new Server();
-        server.setNome("Test");
+        server.setName("Test");
 
         ServerService service = new ServerService();
         service.save(server);
@@ -229,7 +230,7 @@ public class AppTest {
     public void testApplicationRemotion() {
 
         Application application = new Application();
-        application.setNome("Test");
+        application.setName("Test");
 
         ApplicationService service = new ApplicationService();
         service.save(application);

@@ -3,10 +3,13 @@ package com.rangel.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Datacenter {
@@ -19,6 +22,11 @@ public class Datacenter {
 
     private String location;
 
+    @OneToMany(
+        mappedBy = "datacenter",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true,
+        fetch = FetchType.LAZY)
     private List<Server> servers;
 
     public Datacenter() {
@@ -27,7 +35,7 @@ public class Datacenter {
     }
 
     /**
-    * COnstructor method with arguments.
+    * Constructor method with arguments.
     * @param id Long, the primary-key of a Datacenter.
     * @param nome String, Datacenter name.
     * @param localidade String, the location.

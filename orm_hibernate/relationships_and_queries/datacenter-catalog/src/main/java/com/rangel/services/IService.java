@@ -8,7 +8,7 @@ import jakarta.persistence.Persistence;
 
 public interface IService<T, I extends Serializable> {
 
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.trybe.acc.java.hibernate.datacenter");
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.rangel.hibernate.datacenter");
 
     void save(T s);
 
