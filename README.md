@@ -44,6 +44,9 @@ Java Boost preparation
 - Relationships and queries
 
 ### 10. Java Web
+- How does Java go to the web?
+- Logs & Datasources
+-Deploying an application
 
 ### 11. Spring
 
