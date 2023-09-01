@@ -47,12 +47,12 @@ public class BookController {
     @Produces("application/json")
     public Response updateById(@PathParam("id") UUID id, Book bookEntity) {
         try {
-        Book book = books.stream().filter(b -> b.getId().equals(id)).findAny().orElseThrow();
-        book.setName(bookEntity.getName());
-        book.setAuthor(bookEntity.getAuthor());
-        return Response.ok(book).build();
+            Book book = books.stream().filter(b -> b.getId().equals(id)).findAny().orElseThrow();
+            book.setName(bookEntity.getName());
+            book.setAuthor(bookEntity.getAuthor());
+            return Response.ok(book).build();
         } catch (NoSuchElementException e) {
-        return Response.status(404).build();
+            return Response.status(404).build();
         }
     }
 
@@ -62,14 +62,14 @@ public class BookController {
     @Produces("application/json")
     public Response deleteById(@PathParam("id") UUID id) {
         try {
-        Book book = books.stream()
-            .filter(b -> b.getId().equals(id))
-            .findAny()
-            .orElseThrow();
-        books.remove(book);
-        return Response.ok(book).build();
+            Book book = books.stream()
+                .filter(b -> b.getId().equals(id))
+                .findAny()
+                .orElseThrow();
+            books.remove(book);
+            return Response.ok(book).build();
         } catch (NoSuchElementException e) {
-        return Response.status(404).build();
+            return Response.status(404).build();
         }
     }
 }
